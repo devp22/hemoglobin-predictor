@@ -5,7 +5,7 @@ from sklearn.metrics import mean_squared_error,mean_absolute_error,r2_score
 import joblib
 import pandas as pd
 
-df = pd.read_csv('./src/cbc-data.csv')
+df = pd.read_csv('./cbc-data.csv')
 df = df.dropna()
 model = LinearRegression()
 X = pd.DataFrame(pd.concat([df['  RBC    '],df['PCV'],df['MCV  '],df['MCH'],df[' MCHC  '],df[' RDW    '],df['TLC'],df[' PLT /mm3']],axis=1)).iloc[1:]
@@ -20,3 +20,5 @@ y_pred = model.predict(X_test)
 mse = mean_squared_error(Y_test,y_pred)
 r2_score = r2_score(Y_test,y_pred)
 print('Your model is ',round(r2_score*100,2),"% accurate")
+
+joblib.dump(model,'hemoglobin-predictor-model.pkl')
