@@ -12,8 +12,6 @@ This document outlines the software requirements for the Hemoglobin Predictor ap
 
 The Hemoglobin Predictor application will:
 - Predict hemoglobin levels based on user-inputted RBC counts.
-- Provide valuable insights for healthcare professionals.
-- Be usable by patients to monitor their health metrics.
 
 ## Overall Description
 
@@ -25,30 +23,22 @@ The healthcare industry generates vast amounts of data. The Hemoglobin Predictor
 
 - User input for medical metrics.
 - Hemoglobin level prediction.
-- Data visualization to track patient progress.
 
 ### User Characteristics
 
 The application is intended for:
 - Physicians and healthcare professionals.
-- Patients who wish to monitor their health metrics.
 
 ## Functional Requirements
-
-### User Stories
-
-- **Physicians** can enter patient data to predict future hemoglobin levels and adjust treatment plans accordingly.
-- **Patients** can predict their health progress based on previous records and gain insights into their hemoglobin levels.
 
 ### Use Cases
 
 - **Prediction Tool**: Predict future health outcomes based on historical data.
-- **Data Visualization**: Provide visual insights (e.g., line charts) showing overall patient progress.
 
 ### Input and Output Specifications
 
-- **Input**: Patient data provided in a structured format (CSV, PDF).
-- **Output**: Predicted hemoglobin levels and visualizations (e.g., line charts) representing patient progress.
+- **Input**: Patient data provided in a structured format (CSV).
+- **Output**: Predicted hemoglobin levels 
 
 ## Non-Functional Requirements
 
