@@ -20,9 +20,10 @@ const [prediction,setPrediction] = useState('');
 
 const handleChange = (e) => {
     const {name,value} = e.target;
+    const formattedValue = parseFloat(value).toFixed(2);
     setFormData((previousData)=>({
         ...previousData,
-        [name]: value
+        [name]: formattedValue
     }))
 }
 
@@ -60,35 +61,35 @@ return(
       </div>
       <div>
         <label>RBC (Red Blood Cell count):</label>
-        <input type="number" name="rbc" value={formData.rbc} onChange={handleChange} />
+        <input type="number" name="rbc" value={formData.rbc} onChange={handleChange} step="0.01"/>
       </div>
       <div>
         <label>PCV (Packed Cell Volume):</label>
-        <input type="number" name="pcv" value={formData.pcv} onChange={handleChange} />
+        <input type="number" name="pcv" value={formData.pcv} onChange={handleChange} step="0.01" />
       </div>
       <div>
         <label>MCV (Mean Cell Volume):</label>
-        <input type="number" name="mcv" value={formData.mcv} onChange={handleChange} />
+        <input type="number" name="mcv" value={formData.mcv} onChange={handleChange} step="0.01" />
       </div>
       <div>
         <label>MCH (Mean Cell Hemoglobin):</label>
-        <input type="number" name="mch" value={formData.mch} onChange={handleChange} />
+        <input type="number" name="mch" value={formData.mch} onChange={handleChange} step="0.01" />
       </div>
       <div>
         <label>MCHC (Mean cell hemoglobin concentration):</label>
-        <input type="number" name="mchc" value={formData.mchc} onChange={handleChange} />
+        <input type="number" name="mchc" value={formData.mchc} onChange={handleChange} step="0.01" />
       </div>
       <div>
         <label>RDW (Red cell distribution width):</label>
-        <input type="number" name="rdw" value={formData.rdw} onChange={handleChange} />
+        <input type="number" name="rdw" value={formData.rdw} onChange={handleChange} step="0.01" />
       </div>
       <div>
         <label>TLC (White blood cell count):</label>
-        <input type="number" name="tlc" value={formData.tlc} onChange={handleChange} />
+        <input type="number" name="tlc" value={formData.tlc} onChange={handleChange} step="0.01" />
       </div>
       <div>
         <label>PLT /mm<sup>3</sup> (Platelet count):</label>
-        <input type="number" name="plt" value={formData.plt} onChange={handleChange} />
+        <input type="number" name="plt" value={formData.plt} onChange={handleChange} step="0.01" />
       </div>
       <button type="submit">Submit</button>
     </form>

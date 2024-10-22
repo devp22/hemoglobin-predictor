@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# Hemoglobin Predictor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+The Hemoglobin Predictor is a web application designed to predict hemoglobin levels for patients based on their previous RBC counts. This application is primarily targeted at doctors and healthcare professionals, allowing them to make informed decisions regarding patient treatment.
 
-In the project directory, you can run:
+## Purpose
 
-### `npm start`
+This document outlines the software requirements for the Hemoglobin Predictor application, detailing its scope, features, functional and non-functional requirements, as well as system requirements.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Scope
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The Hemoglobin Predictor application will:
+- Predict hemoglobin levels based on user-inputted RBC counts.
+- Provide valuable insights for healthcare professionals.
+- Be usable by patients to monitor their health metrics.
 
-### `npm test`
+## Overall Description
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Product Perspective
 
-### `npm run build`
+The healthcare industry generates vast amounts of data. The Hemoglobin Predictor aims to utilize this data effectively, leveraging information collected during lab visits to enhance patient care.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Product Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- User input for medical metrics.
+- Hemoglobin level prediction.
+- Data visualization to track patient progress.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### User Characteristics
 
-### `npm run eject`
+The application is intended for:
+- Physicians and healthcare professionals.
+- Patients who wish to monitor their health metrics.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Functional Requirements
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### User Stories
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Physicians** can enter patient data to predict future hemoglobin levels and adjust treatment plans accordingly.
+- **Patients** can predict their health progress based on previous records and gain insights into their hemoglobin levels.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Use Cases
 
-## Learn More
+- **Prediction Tool**: Predict future health outcomes based on historical data.
+- **Data Visualization**: Provide visual insights (e.g., line charts) showing overall patient progress.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Input and Output Specifications
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Input**: Patient data provided in a structured format (CSV, PDF).
+- **Output**: Predicted hemoglobin levels and visualizations (e.g., line charts) representing patient progress.
 
-### Code Splitting
+## Non-Functional Requirements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Performance
 
-### Analyzing the Bundle Size
+- The machine learning model achieves 96% accuracy on training and testing datasets.
+- Predictions should be delivered in real-time with a latency of 1-2 seconds after data input.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Usability
 
-### Making a Progressive Web App
+- The application will feature a clean, intuitive interface for ease of use.
+- Clear, actionable predictions will be provided for patient hemoglobin levels.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## System Requirements
 
-### Advanced Configuration
+### Hardware Requirements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Any modern computer or server capable of running Python, Flask, ReactJS, and Docker.
+- Development Environment: At least 8GB of RAM, 4-core processor, and 10GB of disk space.
+- Production Environment: Cloud hosting (AWS, GCP, or Azure) with autoscaling capabilities for high-traffic scenarios.
 
-### Deployment
+### Software Requirements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Backend**: Python with Flask
+- **Machine Learning**: SciKit-Learn or TensorFlow
+- **Frontend**: ReactJS
 
-### `npm run build` fails to minify
+## Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To install and run the Hemoglobin Predictor, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd hemoglobin-predictor
+
+2. Build and run the Docker containers:
+    docker-compose up --build
+
+3. Access the application at http://localhost:3000
+
+## Documentation
+
+For more detailed documentation, refer to SRS file.

@@ -1,43 +1,11 @@
-# Stage 1: Build the React App
-FROM node:18-alpine AS react-build
+FROM nginx:alpine AS production-stage
 
-# Set the working directory to /app
-WORKDIR /app
+COPY --from=frontend-builder /app/build /usr/share/nginx/html
 
-# Copy package.json and package-lock.json (or yarn.lock) from src folder
-COPY ./package*.json ./
+COPY --from=backend-builder /app /app
 
-# Install npm dependencies
-RUN npm install
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# Copy the entire src and public folders to /app
-COPY ./src ./src
-COPY ./public ./public
+EXPOSE 80 5000
 
-# Build the React app
-RUN npm run build
-
-# Stage 2: Set up Python Flask Backend and Serve React Frontend
-FROM python:3.9-slim AS final
-
-# Set the working directory for the backend
-WORKDIR /app
-
-# Install Flask and other Python dependencies from requirements.txt
-COPY ./src/requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the backend code
-COPY ./src .
-
-# Copy the built React app from the previous stage to the backend's static folder
-COPY --from=react-build /app/build ./static
-
-# Create model
-CMD ["python", "model.py"]
-
-# Expose port 5000 for Flask
-EXPOSE 5000
-
-# Run the Flask app
-CMD ["python", "app.py"]
+CMD ["sh", "-c", "nginx -g 'daemon off;' & python /app/app.py"]
